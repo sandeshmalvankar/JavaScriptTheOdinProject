@@ -50,3 +50,11 @@ body {
 .weather-details-item-title {
   font-size: 14px;
 }
+.unit {
+    font-size:15px;
+    margin-left: 2px;
+}
+.svg {
+    height:25px;
+    width:25px;
+}

@@ -18,7 +18,7 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="../src/styles/style.css"/>
+    <link rel="stylesheet" href="../src/styles/style.css" />
   </head>
   <body>
     <nav class="navbar navbar-light">
@@ -41,15 +41,18 @@
       <div class="row gx-5">
         <div class="col">
           <div class="p-3">
-            <div id="city">Kolhapur</div>
-            <div id="date-time">22/06/2021, 10.16 AM</div>
+            <div id="city"></div>
+            <div id="date-time">
+              <span id="date"></span>
+              <span id="time"></span>
+            </div>
             <div class="current-temp">
-              <span id="temp">25*C</span>
-              <span id="main">Clouds</span>
+              <span id="temp"></span><sup>o</sup>C
+              <span id="main"></span>
             </div>
             <div class="max-min-temp">
-              <span id="temp-min">29*C</span>/
-              <span id="temp-max">21*C</span>
+              <span id="temp-max"></span><sup>o</sup>C /
+              <span id="temp-min"></span><sup>o</sup>C
             </div>
           </div>
         </div>
@@ -59,23 +62,27 @@
             <div class="container">
               <div class="row row-cols-2 weather-details-items">
                 <div class="col weather-details-item">
-                  <span id="temperature-felt">25*C</span>
+                  <img class="svg" src="../src/images/svg/thermo.svg" alt="">
+                  <span id="temperature-felt"></span>
+                  <span class="unit"> <sup>o</sup> C</span>
                   <div class="weather-details-item-title">Temperature felt</div>
                 </div>
                 <div class="col weather-details-item">
-                  <span id="visibility">14km</span> 
+                  <span id="visibility"></span><span class="unit">km</span>
                   <div class="weather-details-item-title">Visibility</div>
                 </div>
                 <div class="col weather-details-item">
-                  <span id="air-pressure">1000hpa</span> 
+                  <span id="air-pressure"></span><span class="unit">hPa</span>
                   <div class="weather-details-item-title">Air pressure</div>
                 </div>
                 <div class="col weather-details-item">
-                   <span id="humidity">80%</span>
+                  <img class="svg" src="../src/images/svg/humidity.svg" alt="">
+                  <span id="humidity"></span><span class="unit">%</span>
                   <div class="weather-details-item-title">Humidity</div>
                 </div>
                 <div class="col weather-details-item">
-                  <span id="wind-speed">14km/h</span> 
+                  <img class="svg" src="../src/images/svg/wind.svg" alt="">
+                  <span id="wind-speed"></span><span class="unit">m/s</span>
                   <div class="weather-details-item-title">Wind speed</div>
                 </div>
               </div>
