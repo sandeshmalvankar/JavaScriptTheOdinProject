@@ -5,6 +5,10 @@ const validateInputCity = (city) => {
   return city.length > 0;
 };
 
+const round = (int) => {
+  return Math.round(int)
+}
+
 //Request to Weather api
 async function weatherApi(city) {
   try {
@@ -54,10 +58,10 @@ function filterData(data) {
     airPressure,
     humidity,
     windSpeed,
-    temp,
-    tempMax,
-    tempMin,
-    temperatureFelt,
+    temp: round(temp),
+    tempMax: round(tempMax),
+    tempMin: round(tempMin),
+    temperatureFelt: round(temperatureFelt),
     main
   };
 }
