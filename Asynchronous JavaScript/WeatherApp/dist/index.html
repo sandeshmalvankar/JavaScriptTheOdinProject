@@ -30,9 +30,9 @@
             type="search"
             placeholder="Enter your city"
             aria-label="Search"
-            id="city"
+            id="input-city"
           />
-          <button class="btn btn-outline-success" id="search">Search</button>
+          <button class="btn btn btn-dark" id="search">Search</button>
         </div>
       </div>
     </nav>
@@ -41,38 +41,42 @@
       <div class="row gx-5">
         <div class="col">
           <div class="p-3">
-            <div class="city">Kolhapur</div>
-            <div class="date-time">22/06/2021, 10.16 AM</div>
+            <div id="city">Kolhapur</div>
+            <div id="date-time">22/06/2021, 10.16 AM</div>
             <div class="current-temp">
-              25C <span class="weather-main">Clouds</span>
+              <span id="temp">25*C</span>
+              <span id="main">Clouds</span>
             </div>
-            <div class="max-min-temp">29*/21* Tue</div>
+            <div class="max-min-temp">
+              <span id="temp-min">29*C</span>/
+              <span id="temp-max">21*C</span>
+            </div>
           </div>
         </div>
         <div class="col">
           <div class="p-3">
-            <div class="Weather-details">Weather Details</div>
+            <div class="weather-details">Weather Details</div>
             <div class="container">
               <div class="row row-cols-2 weather-details-items">
                 <div class="col weather-details-item">
-                  25C
-                  <div class="weather-details-items-title">Temperature felt</div>
+                  <span id="temperature-felt">25*C</span>
+                  <div class="weather-details-item-title">Temperature felt</div>
                 </div>
                 <div class="col weather-details-item">
-                  14km
-                  <div class="weather-details-items-title">Visibility</div>
+                  <span id="visibility">14km</span> 
+                  <div class="weather-details-item-title">Visibility</div>
                 </div>
                 <div class="col weather-details-item">
-                  1000hpa
-                  <div class="weather-details-items-title">Air pressure</div>
+                  <span id="air-pressure">1000hpa</span> 
+                  <div class="weather-details-item-title">Air pressure</div>
                 </div>
                 <div class="col weather-details-item">
-                  80%
-                  <div class="weather-details-items-title">Humidity</div>
+                   <span id="humidity">80%</span>
+                  <div class="weather-details-item-title">Humidity</div>
                 </div>
                 <div class="col weather-details-item">
-                  14km/h
-                  <div class="weather-details-items-title">Wind speed</div>
+                  <span id="wind-speed">14km/h</span> 
+                  <div class="weather-details-item-title">Wind speed</div>
                 </div>
               </div>
             </div>
