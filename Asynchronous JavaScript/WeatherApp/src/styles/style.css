@@ -1,0 +1,47 @@
+html {
+    color: white;
+}
+body {
+    background: url(../images/weather7.jfif) no-repeat center center fixed;
+    background-size: 100% 100%;
+}
+.city {
+    font-size:50px;
+    color: white;
+    margin-bottom: 8px;
+}
+.date-time {
+    color: white;
+    font-size:20px;
+    margin : 8px 0px 8px 0px;
+}
+.current-temp {
+    color: white;
+    font-size:35px;
+    margin : 8px 0px 8px 0px;
+}
+.weather-main {
+    color: white;
+    font-size:25px
+}
+.max-min-temp {
+    color: white;
+    font-size:20px;
+    margin : 8px 0px 8px 0px;
+}
+.Weather-details {
+    font-size:40px;
+    color: white;
+    margin-bottom: 8px;
+}
+
+.weather-details-items {
+    color: white;
+    font-size:20px;
+}
+.weather-details-item {
+    margin: 5px 0px 5px 0px;
+}
+.weather-details-items-title {
+    font-size:14px;
+}
