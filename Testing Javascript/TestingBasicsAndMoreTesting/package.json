@@ -1,0 +1,15 @@
+{
+  "name": "testingbasicsandmoretesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "apikey.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch *.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.5"
+  }
+}
