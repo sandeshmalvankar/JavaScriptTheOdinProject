@@ -58,3 +58,18 @@ body {
     height:25px;
     width:25px;
 }
+span {
+  color: white;
+  margin: 5px;
+}
+#err-message {
+  color: white;
+  width:100%;
+  font-size: 20px;
+  font-weight: bold;
+  visibility: hidden;
+  margin : 5px;
+}
+#input-city {
+  width:auto;
+}

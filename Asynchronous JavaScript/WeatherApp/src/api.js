@@ -1,4 +1,5 @@
 import APIKEY from "./apikey";
+import { element } from "./tempConversion";
 
 //validate inputCity
 const validateInputCity = (city) => {
@@ -6,8 +7,8 @@ const validateInputCity = (city) => {
 };
 
 const round = (int) => {
-  return Math.round(int)
-}
+  return Math.round(int);
+};
 
 //Request to Weather api
 async function weatherApi(city) {
@@ -16,9 +17,14 @@ async function weatherApi(city) {
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKEY}`
     );
     let data = await response.json();
+    //console.log(data)
+    if (data.cod == 404) {
+      throw new Error("City not found");
+    }
     return data;
   } catch (err) {
-    console.log("err");
+    displayErrorMessage('City not found')
+    //console.log("error "+ err);
   }
 }
 
@@ -44,7 +50,7 @@ function filterData(data) {
     temp_max: tempMax,
     temp_min: tempMin,
     feels_like: temperatureFelt,
-    pressure: airPressure ,
+    pressure: airPressure,
     humidity,
   } = data.main;
 
@@ -62,7 +68,7 @@ function filterData(data) {
     tempMax: round(tempMax),
     tempMin: round(tempMin),
     temperatureFelt: round(temperatureFelt),
-    main
+    main,
   };
 }
 
@@ -78,27 +84,36 @@ function fillData({
   tempMax,
   tempMin,
   temperatureFelt,
-  main
+  main,
 }) {
   let display = [
-      { key: "#city", value : city }, 
-      { key: "#date", value : date }, 
-      { key: "#time", value : time }, 
-      { key: "#visibility", value : `${visibility}` }, 
-      { key: "#air-pressure", value : `${airPressure}` }, 
-      { key: "#humidity", value : `${humidity}`}, 
-      { key: "#wind-speed", value : `${windSpeed}` }, 
-      { key: "#temp", value : temp }, 
-      { key: "#temp-max", value : tempMax },
-      { key: "#temp-min", value : tempMin }, 
-      { key: "#temperature-felt", value : temperatureFelt },  
-      { key: "#main", value : main }, 
-    ];
-    display.forEach(({key, value}) => {
-        //console.log(document.querySelector(key))
-        //console.log(value)
-        document.querySelector(key).textContent = value
-    })
+    { key: "#city", value: city },
+    { key: "#date", value: date },
+    { key: "#time", value: time },
+    { key: "#visibility", value: `${visibility}` },
+    { key: "#air-pressure", value: `${airPressure}` },
+    { key: "#humidity", value: `${humidity}` },
+    { key: "#wind-speed", value: `${windSpeed}` },
+    { key: "#temp", value: temp },
+    { key: "#temp-max", value: tempMax },
+    { key: "#temp-min", value: tempMin },
+    { key: "#temperature-felt", value: temperatureFelt },
+    { key: "#main", value: main },
+  ];
+  display.forEach(({ key, value }) => {
+    //console.log(document.querySelector(key))
+    //console.log(value)
+    document.querySelector(key).textContent = value;
+  });
 }
 
-export { validateInputCity, weatherApi, filterData, fillData };
+const displayErrorMessage = (message) => {
+  let errMessage = element("err-message");
+  errMessage.textContent = message;
+  errMessage.style.visibility = "visible";
+  setTimeout(() => {
+    errMessage.style.visibility = "hidden";
+  }, 4000);
+};
+
+export { validateInputCity, weatherApi, filterData, fillData, displayErrorMessage };

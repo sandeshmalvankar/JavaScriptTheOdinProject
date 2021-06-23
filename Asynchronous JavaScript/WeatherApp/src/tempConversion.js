@@ -18,4 +18,4 @@ const ftoc = () => {
   });
 };
 
-export { ctof, ftoc };
+export { ctof, ftoc, element };
