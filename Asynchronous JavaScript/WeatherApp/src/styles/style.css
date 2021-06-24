@@ -7,8 +7,9 @@ body {
 }
 .navbar-brand {
     color: white !important;
-    font-size: 50px;
+    font-size: 60px;
     font-style: italic;
+    text-shadow: -4px 1px 0px rgba(255,255,255,0.37);
 }
 #city {
   font-size: 50px;
@@ -72,4 +73,7 @@ span {
 }
 #input-city {
   width:auto;
+}
+#logo {
+  height: 60px;
 }
