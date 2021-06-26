@@ -1,0 +1,18 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+}
+.search-box {
+  margin: 20px;
+}
+img {
+  height: 400px;
+  width: 400px;
+}
+button {
+  font-size: 20px;
+}
