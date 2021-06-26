@@ -21,5 +21,94 @@
     <link rel="stylesheet" href="../src/style.css" />
   </head>
   <body>
+    <nav class="navbar navbar-light">
+      <div class="container-fluid">
+        <h1 class="navbar-brand">
+          <img src="../src/images/haze.png" alt="" id="logo" />
+          Weather App
+        </h1>
+        <div class="d-flex">
+          <div id="err-message"></div>
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Enter your city"
+            aria-label="Search"
+            id="input-city"
+          />
+          <button class="btn btn btn-dark" id="search">Search</button>
+        </div>
+      </div>
+    </nav>
+    <div class="container px-4">
+      <div class="row gx-5">
+        <div class="col">
+          <div class="p-3">
+            <div id="city"></div>
+            <div id="date-time">
+              <span id="date"></span>
+              <span id="time"></span>
+            </div>
+            <div class="current-temp">
+              <span id="temp"></span><sup>o</sup>
+              <span id="main"></span>
+            </div>
+            <div class="max-min-temp">
+              <span id="temp-max"></span><sup>o</sup> /
+              <span id="temp-min"></span><sup>o</sup>
+            </div>
+            <span>C</span>
+            <span class="form-switch">
+              <input class="form-check-input" type="checkbox" id="convert" />
+            </span>
+            <span>F</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="p-3">
+            <div class="weather-details">Weather Details</div>
+            <div class="container">
+              <div class="row row-cols-2 weather-detail-items">
+                <div class="col weather-detail-item">
+                  <img class="svg" src="../src/images/svg/thermo.svg" alt="" />
+                  <span id="temperature-felt"></span>
+                  <span class="unit"> <sup>o</sup> </span>
+                  <div class="weather-detail-item-title">Temperature felt</div>
+                </div>
+                <div class="col weather-detail-item">
+                  <img class="svg" src="../src/images/visibility.png" alt="" />
+                  <span id="visibility"></span><span class="unit">km</span>
+                  <div class="weather-detail-item-title">Visibility</div>
+                </div>
+                <div class="col weather-detail-item">
+                  <img
+                    class="svg"
+                    src="../src/images/air-pressure.png"
+                    alt=""
+                  />
+                  <span id="air-pressure"></span><span class="unit">hPa</span>
+                  <div class="weather-detail-item-title">Air pressure</div>
+                </div>
+                <div class="col weather-detail-item">
+                  <img
+                    class="svg"
+                    src="../src/images/svg/humidity.svg"
+                    alt=""
+                  />
+                  <span id="humidity"></span><span class="unit">%</span>
+                  <div class="weather-detail-item-title">Humidity</div>
+                </div>
+                <div class="col weather-detail-item">
+                  <img class="svg" src="../src/images/svg/wind.svg" alt="" />
+                  <span id="wind-speed"></span><span class="unit">m/s</span>
+                  <div class="weather-detail-item-title">Wind speed</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>

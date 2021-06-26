@@ -1,5 +1,49 @@
 body {
-    color: white;
-    background: url(images/background-image.jfif) no-repeat center center fixed;
-    background-size: 100% 100%;
+  color: white;
+  background: url(images/background-image.jfif) no-repeat center center fixed;
+  background-size: 100% 100%;
+}
+.navbar-brand {
+  color: white !important;
+  font-size: 60px;
+  font-style: italic;
+  text-shadow: -4px 1px 0px rgba(255, 255, 255, 0.37);
+}
+#date-time {
+  font-size: 20px;
+  margin: 8px 0px 8px 0px;
+}
+.current-temp {
+  font-size: 35px;
+  margin: 8px 0px 8px 0px;
+}
+#main {
+  font-size: 25px;
+}
+.max-min-temp {
+  font-size: 20px;
+  margin: 8px 0px 8px 0px;
+}
+.weather-details {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+.weather-detail-items {
+  font-size: 20px;
+}
+.weather-detail-item {
+  margin: 5px 0px 5px 0px;
+}
+.weather-detail-item-title {
+  font-size: 14px;
+}
+.unit {
+  font-size: 15px;
+  margin-left: 2px;
+}
+span {
+  margin: 5px;
+}
+#logo {
+  height: 60px;
 }
