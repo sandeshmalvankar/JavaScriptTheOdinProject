@@ -1,3 +1,5 @@
 const getElementById = (id) => document.querySelector(`#${id}`);
 
-export { getElementById }
+const validateCity = (city) => city.length > 0;
+
+export { getElementById, validateCity };
