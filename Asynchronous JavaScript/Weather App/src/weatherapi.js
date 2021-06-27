@@ -1,4 +1,4 @@
-import APIKEY from "./../../WeatherApp/src/apikey";
+import { APIKEY } from "./apikey";
 import { getElementById, round } from "./utils";
 
 const getWeatherData = async (city) => {
@@ -7,7 +7,7 @@ const getWeatherData = async (city) => {
   );
   let data = await response.json();
   //console.log('data',data);
-  if(data.cod == 404) throw new Error('City not found')
+  if (data.cod == 404) throw new Error("City not found");
   return data;
 };
 
