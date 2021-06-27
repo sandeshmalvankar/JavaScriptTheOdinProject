@@ -65,3 +65,34 @@ span {
 #input-city {
   width: auto;
 }
+.hourly-report {
+  margin-top: 30px;
+}
+.hourly-report .title {
+  font-size: 30px;
+  margin: 5px;
+}
+#hourly-data {
+  overflow-x: scroll;
+  flex-wrap: nowrap;
+}
+#hourly-data::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+#hourly-data::-webkit-scrollbar-thumb {
+  background-color: white; /* color of the scroll thumb */
+  border-radius: 30px; /* roundness of the scroll thumb */
+  border: 3px solid black; /* creates padding around scroll thumb */
+}
+.hour-section {
+  margin: 5px;
+  width: auto;
+}
+.hourly-data-subitem {
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+}
+.hourly-image {
+  height: 30px;
+}

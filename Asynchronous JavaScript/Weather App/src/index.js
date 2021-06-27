@@ -1,4 +1,8 @@
-import { filterHourlyData, getHourlyWeatherData } from "./hourly-weatherappi";
+import {
+  fillHourlyData,
+  filterHourlyData,
+  getHourlyWeatherData,
+} from "./hourly-weatherappi";
 import { convertToC, convertToF } from "./tempConversion";
 import { displayErrorMessage, getElementById, validateCity } from "./utils";
 import { fillData, filterWeatherData, getWeatherData } from "./weatherapi";
@@ -10,15 +14,17 @@ getElementById("search").onclick = async () => {
     if (!validateCity(inputCity.value)) throw new Error("City cannot be empty");
     const weatherData = await getWeatherData(inputCity.value);
     //console.log(weatherData);
-    let {lon ,lat } = weatherData.coord
+    let { lon, lat } = weatherData.coord;
     //console.log(lon + ' '+lat)
     const filteredData = await filterWeatherData(weatherData);
     //console.log(filteredData);
     fillData(filteredData);
 
-    const hourlyWeatherData = await getHourlyWeatherData(lat, lon)
+    const hourlyWeatherData = await getHourlyWeatherData(lat, lon);
     //console.log(hourlyWeatherData.hourly);
-    console.log(filterHourlyData(hourlyWeatherData.hourly));
+    //console.log(filterHourlyData(hourlyWeatherData.hourly));
+    let filteredHourlyData = await filterHourlyData(hourlyWeatherData.hourly);
+    fillHourlyData(filteredHourlyData);
   } catch (error) {
     //console.log(error);
     displayErrorMessage(error.message);

@@ -13,4 +13,16 @@ const displayErrorMessage = (message) => {
   }, 4000);
 };
 
-export { getElementById, validateCity, round, displayErrorMessage };
+const createEleWithClass = (ele, className) => {
+  const element = document.createElement(ele);
+  element.classList.add(className);
+  return element;
+};
+
+export {
+  getElementById,
+  validateCity,
+  round,
+  displayErrorMessage,
+  createEleWithClass,
+};

@@ -1,5 +1,5 @@
 import { APIKEY } from "./apikey";
-import { round } from "./utils";
+import { createEleWithClass, getElementById, round } from "./utils";
 
 const getHourlyWeatherData = async (lat, lon) => {
   let response = await fetch(
@@ -10,7 +10,7 @@ const getHourlyWeatherData = async (lat, lon) => {
   return data;
 };
 
-const filterHourlyData = (data) => {
+const filterHourlyData = async (data) => {
   let currentTime = new Date();
   let hourlyData = [];
   let time, temp, description, hourData;
@@ -31,4 +31,43 @@ const filterHourlyData = (data) => {
 
   return hourlyData;
 };
-export { getHourlyWeatherData, filterHourlyData };
+
+const fillHourlyData = (hourlyData) => {
+  let hourlyDataSection = getElementById("hourly-data");
+  //clear previous loaded data
+   hourlyDataSection.innerHTML = ''
+
+  for (const hour of hourlyData) {
+    let divCol = createEleWithClass("div", "hour-section");
+
+    let time = createEleWithClass("div", "hourly-data-subitem");
+    time.textContent = hour.time;
+    divCol.appendChild(time);
+
+    let imageDescription = hour.description.split(" ");
+    let hourImage = createEleWithClass("img", "hourly-image");
+    let hourImageDiv = createEleWithClass("div", "hourly-data-subitem");
+    if (imageDescription[1] == "clouds") {
+      hourImage.src = "../src/images/cloud.png";
+    } else if (imageDescription[1] == "rain") {
+      hourImage.src = "../src/images/rain.png";
+    }
+    hourImageDiv.appendChild(hourImage);
+    divCol.appendChild(hourImageDiv);
+
+    let description = createEleWithClass("div", "hourly-data-subitem");
+    description.textContent = hour.description;
+    divCol.appendChild(description);
+
+    let temp = createEleWithClass("div", "hourly-data-subitem");
+    temp.textContent = hour.temp;
+    let C = document.createElement("sub");
+    C.textContent = "o";
+    temp.appendChild(C);
+    divCol.appendChild(temp);
+
+    hourlyDataSection.appendChild(divCol);
+  }
+};
+
+export { getHourlyWeatherData, filterHourlyData, fillHourlyData };
