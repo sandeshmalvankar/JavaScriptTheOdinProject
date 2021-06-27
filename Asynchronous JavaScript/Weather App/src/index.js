@@ -1,3 +1,4 @@
+import { getDailyWeatherData } from "./daily-weatherapi";
 import {
   fillHourlyData,
   filterHourlyData,
@@ -25,6 +26,9 @@ getElementById("search").onclick = async () => {
     //console.log(filterHourlyData(hourlyWeatherData.hourly));
     let filteredHourlyData = await filterHourlyData(hourlyWeatherData.hourly);
     fillHourlyData(filteredHourlyData);
+
+    const dailyWeatherData = await getDailyWeatherData(lat, lon)
+    console.log(dailyWeatherData.daily)
   } catch (error) {
     //console.log(error);
     displayErrorMessage(error.message);
