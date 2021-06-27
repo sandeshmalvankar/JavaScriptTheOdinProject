@@ -1,5 +1,5 @@
 import { APIKEY } from "./apikey";
-import { round } from "./utils";
+import { createElement, createEleWithClass, getElementById, round } from "./utils";
 
 const getDailyWeatherData = async (lat, lon) => {
   let response = await fetch(
@@ -49,4 +49,54 @@ const filterDailyData = async (data) => {
   return dailyData;
 };
 
-export { getDailyWeatherData, filterDailyData };
+const fillDailyData = (dailyData) => {
+  let dailyDataSection = getElementById("daily-data");
+  //clear previous loaded data
+  dailyDataSection.innerHTML = "";
+
+  for (const daily of dailyData) {
+    let divRow = createEleWithClass("div", "row" ,"daily-data-item");
+
+    let date = createEleWithClass("div", "col");
+    date.textContent = daily.date;
+    divRow.appendChild(date);
+
+    let day = createEleWithClass("div", "col");
+    day.textContent = daily.weekday;
+    divRow.appendChild(day);
+
+    let image = createEleWithClass("img", "daily-image");
+    if (daily.imageDescription == "clouds") {
+        image.src = "../src/images/cloud.png";
+    } else if (daily.imageDescription == "rain") {
+        image.src = "../src/images/rain.png";
+    }
+    let imageDiv = createEleWithClass("div", "col");
+    imageDiv.appendChild(image);
+    divRow.appendChild(imageDiv);
+
+    let description = createEleWithClass("div", "col","daily-description");
+    description.textContent = daily.description;
+    divRow.appendChild(description);
+
+    let tempMaxMin = createEleWithClass("div", "col" ,"daily-max-min-temp");
+
+    let tempMax = createEleWithClass("div", "col");
+    tempMax.textContent = daily.tempMax;
+    tempMaxMin.appendChild(tempMax);
+
+    tempMaxMin.textContent += ' / '
+
+    let tempMin = createEleWithClass("div", "col");
+    tempMin.textContent = daily.tempMin;
+    tempMaxMin.appendChild(tempMin);
+
+    let C = createElement("sub");
+    C.textContent = 'o';
+    tempMaxMin.appendChild(C);
+    divRow.appendChild(tempMaxMin);
+
+    dailyDataSection.appendChild(divRow);
+  }
+};
+export { getDailyWeatherData, filterDailyData, fillDailyData };

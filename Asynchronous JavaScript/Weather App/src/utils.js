@@ -13,11 +13,14 @@ const displayErrorMessage = (message) => {
   }, 4000);
 };
 
-const createEleWithClass = (ele, className) => {
-  const element = document.createElement(ele);
-  element.classList.add(className);
+const createEleWithClass = (...args) => {
+  const element = document.createElement(args[0]);
+  for(let arg of args)
+  element.classList.add(arg);
   return element;
 };
+
+const createElement = (ele) => document.createElement(ele);
 
 export {
   getElementById,
@@ -25,4 +28,5 @@ export {
   round,
   displayErrorMessage,
   createEleWithClass,
+  createElement,
 };

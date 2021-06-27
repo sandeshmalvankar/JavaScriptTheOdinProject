@@ -66,9 +66,9 @@ span {
   width: auto;
 }
 .hourly-report {
-  margin-top: 30px;
+  margin-top: 10px;
 }
-.hourly-report .title {
+.title {
   font-size: 30px;
   margin: 5px;
 }
@@ -94,5 +94,27 @@ span {
   justify-content: center;
 }
 .hourly-image {
+  height: 30px;
+}
+.daily-data-item {
+  margin: 6px 0px 6px 0px;
+}
+.daily-description {
+  flex : 1 0 18%;
+}
+.daily-max-min-temp {
+  display: flex;
+}
+.main {
+  flex: 1 0 0%;
+}
+.weather-detail {
+  flex: 1.2 0 0%;
+}
+
+.daily-report {
+  flex: 1.5 0 0%;
+}
+.daily-image {
   height: 30px;
 }
