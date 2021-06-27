@@ -32,6 +32,7 @@ getElementById("search").onclick = async () => {
     let filteredDailyData = await filterDailyData(dailyWeatherData.daily);
     //console.log(filteredDailyData)
     fillDailyData(filteredDailyData);
+    inputCity.value = '';
   } catch (error) {
     //console.log(error);
     displayErrorMessage(error.message);
