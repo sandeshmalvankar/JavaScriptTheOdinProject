@@ -1,4 +1,4 @@
-import { getElementById, validateCity } from "./utils";
+import { displayErrorMessage, getElementById, validateCity } from "./utils";
 import { fillData, filterWeatherData, getWeatherData } from "./weatherapi";
 
 getElementById("search").onclick = async () => {
@@ -9,9 +9,10 @@ getElementById("search").onclick = async () => {
     const weatherData = await getWeatherData(inputCity.value);
     //console.log(weatherData);
     const filteredData = await filterWeatherData(weatherData);
-    console.log(filteredData);
-    fillData(filteredData)
+    //console.log(filteredData);
+    fillData(filteredData);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
+    displayErrorMessage(error.message);
   }
 };

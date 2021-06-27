@@ -6,6 +6,8 @@ const getWeatherData = async (city) => {
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKEY}`
   );
   let data = await response.json();
+  //console.log('data',data);
+  if(data.cod == 404) throw new Error('City not found')
   return data;
 };
 
