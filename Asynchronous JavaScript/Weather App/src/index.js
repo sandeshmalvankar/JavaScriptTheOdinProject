@@ -1,5 +1,5 @@
 import { getElementById, validateCity } from "./utils";
-import { filterWeatherData, getWeatherData } from "./weatherapi";
+import { fillData, filterWeatherData, getWeatherData } from "./weatherapi";
 
 getElementById("search").onclick = async () => {
   let inputCity = getElementById("input-city");
@@ -9,7 +9,8 @@ getElementById("search").onclick = async () => {
     const weatherData = await getWeatherData(inputCity.value);
     //console.log(weatherData);
     const filteredData = await filterWeatherData(weatherData);
-    //console.log(filteredData);
+    console.log(filteredData);
+    fillData(filteredData)
   } catch (error) {
     console.log(error);
   }

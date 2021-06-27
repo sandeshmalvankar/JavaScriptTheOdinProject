@@ -1,5 +1,5 @@
 import APIKEY from "./../../WeatherApp/src/apikey";
-import { round } from "./utils";
+import { getElementById, round } from "./utils";
 
 const getWeatherData = async (city) => {
   let response = await fetch(
@@ -39,4 +39,35 @@ const filterWeatherData = async (data) => {
   };
 };
 
-export { getWeatherData, filterWeatherData };
+const fillData = ({
+  dateTime,
+  city,
+  visibility,
+  airPressure,
+  humidity,
+  windSpeed,
+  temp,
+  tempMax,
+  tempMin,
+  temperatureFelt,
+  main,
+}) => {
+  let display = [
+    { key: "city", value: city },
+    { key: "date-time", value: dateTime },
+    { key: "visibility", value: `${visibility}` },
+    { key: "air-pressure", value: `${airPressure}` },
+    { key: "humidity", value: `${humidity}` },
+    { key: "wind-speed", value: `${windSpeed}` },
+    { key: "temp", value: temp },
+    { key: "temp-max", value: tempMax },
+    { key: "temp-min", value: tempMin },
+    { key: "temperature-felt", value: temperatureFelt },
+    { key: "main", value: main },
+  ];
+
+  display.forEach(({ key, value }) => {
+    getElementById(key).textContent = value;
+  });
+};
+export { getWeatherData, filterWeatherData, fillData };
