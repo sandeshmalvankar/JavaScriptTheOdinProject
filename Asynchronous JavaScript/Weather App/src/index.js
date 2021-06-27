@@ -1,3 +1,4 @@
+import { convertToC, convertToF } from "./tempConversion";
 import { displayErrorMessage, getElementById, validateCity } from "./utils";
 import { fillData, filterWeatherData, getWeatherData } from "./weatherapi";
 
@@ -14,5 +15,14 @@ getElementById("search").onclick = async () => {
   } catch (error) {
     //console.log(error);
     displayErrorMessage(error.message);
+  }
+};
+
+//convert ctof and ftoc switch
+getElementById("convert").onchange = () => {
+  if (convert.checked) {
+    convertToF();
+  } else {
+    convertToC();
   }
 };
