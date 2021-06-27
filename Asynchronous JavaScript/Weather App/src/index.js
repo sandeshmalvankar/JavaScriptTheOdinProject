@@ -1,4 +1,4 @@
-import { getHourlyWeatherData } from "./hourly-weatherappi";
+import { filterHourlyData, getHourlyWeatherData } from "./hourly-weatherappi";
 import { convertToC, convertToF } from "./tempConversion";
 import { displayErrorMessage, getElementById, validateCity } from "./utils";
 import { fillData, filterWeatherData, getWeatherData } from "./weatherapi";
@@ -17,7 +17,8 @@ getElementById("search").onclick = async () => {
     fillData(filteredData);
 
     const hourlyWeatherData = await getHourlyWeatherData(lat, lon)
-
+    //console.log(hourlyWeatherData.hourly);
+    console.log(filterHourlyData(hourlyWeatherData.hourly));
   } catch (error) {
     //console.log(error);
     displayErrorMessage(error.message);
