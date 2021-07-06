@@ -29,13 +29,18 @@
         </h1>
         <div class="d-flex">
           <div id="err-message"></div>
+          <div class="container">
           <input
             class="form-control me-2"
-            type="search"
+            type="text"
             placeholder="Enter your city"
             aria-label="Search"
-            id="input-city"
+            id="input-city" 
+            autocomplete="on"
           />
+          <div id="match-list">
+          </div>
+          </div>
           <button class="btn btn btn-dark" id="search">Search</button>
         </div>
       </div>
@@ -102,8 +107,7 @@
         </div>
         <div class="col daily-report">
           <div class="title">7-Day Weather Forecast</div>   
-          <div class="p-3" id="daily-data">
-                    
+          <div class="p-3" id="daily-data">           
         </div>
       </div>
     </div>
